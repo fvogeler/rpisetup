@@ -43,7 +43,7 @@ echo "alias l.='ls -d .* --color=auto'" >>~/.zshrc
 echo "alias grep='grep --color'" >>~/.zshrc
 
 ## Add shutdown command
-echo "alias shutdown=''" >>~/.zshrc
+echo "alias shutdown='shutdown -h -P now'" >>~/.zshrc
 
 
 
