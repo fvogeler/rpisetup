@@ -1,3 +1,6 @@
+## Enable ssh
+sudo touch /boot/ssh
+
 ## Update & upgrade packages, install new firmware
 sudo apt-get -y update
 sudo apt-get -y upgrade
@@ -9,7 +12,7 @@ sudo apt-get -y install tmux
 ## Install zsh
 sudo apt-get -y install git zsh
 
-## Install oh-my-zsh & powerlevel10k & fonts
+## Install oh-my-zsh + plugins & powerlevel10k & fonts
 sudo apt-get -y install fonts-powerline
 
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -24,6 +27,7 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$
 #ZSH_THEME="powerlevel10k/powerlevel10k" in ~/.zshrc
 #sed -i 's/(?<=^ZSH_THEME\=)\"(.*?)\"/\"powerlevel10k/powerlevel10k\"/g' ~/.zshrc
 
+### powerlevel10K w/o oh-y-zsh
 #git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/powerlevel10k
 #echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
@@ -33,8 +37,14 @@ git clone https://github.com/gpakosz/.tmux.git
 ln -s -f .tmux/.tmux.conf
 cp .tmux/.tmux.conf.local .
 
-## Change default sheel to zsh
+## Install cockpit
+sudo apt-get -y install cockpit
+
+## Change default shell to zsh
 sudo chsh $USER -s $(which zsh)
+
+## Add 24-bit terminfo
+##tic -x -o ~/.terminfo xterm-24bit.src
 
 ## Add custom aliases
 ### Add missing PATH
